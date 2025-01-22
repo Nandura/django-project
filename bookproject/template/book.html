@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="boo.css">
+</head>
+<body>
+    <h id="frond">Create Book</h>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>BOOK NAME:</label><input type="text" name="title">
+        <label>BOOK PRICE:</label><input type="text" name="price">
+        <br>
+        <input type="submit" value="submit">
+
+    
+    </form>
+</body>
+</html>
