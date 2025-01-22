@@ -37,3 +37,13 @@ def updatebook(request,book_id):
         book.save()
         return redirect('/')
     return render(request,'update.html',{'book':book})
+
+def delect(request,book_id):
+    book = Book.objects.get(id=book_id)
+
+    if request.method == 'POST':
+
+        book.delete()
+        return redirect('/')
+
+    return  render(request,'detel.html',{'book':book})
