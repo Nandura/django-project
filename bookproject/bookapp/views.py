@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.defaultfilters import title
 
 from . models import Book
@@ -22,5 +22,18 @@ def list(request):
     return render(request,'listview.html',{'books':books})
 
 def viewlist(request,book_id):
-    book = Book.get(id=book_id)
+    book = Book.objects.get(id=book_id)
     return  render(request,'views.html',{'book':book})
+
+def updatebook(request,book_id):
+    book = Book.objects.get(id=book_id)
+    if request.method =='POST':
+        title = request.POST.get('title')
+        price = request.POST.get('price')
+        book.title = title
+        book.price = price
+
+
+        book.save()
+        return redirect('/')
+    return render(request,'update.html',{'book':book})
