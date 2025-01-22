@@ -6,5 +6,6 @@ urlpatterns = [
 
     path('',views.createbook),
     path('listview/', views.list),
+    path('view/<int:book_id>',views.viewlist)
 
 ]

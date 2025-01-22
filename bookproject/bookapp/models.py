@@ -8,3 +8,7 @@ class Book(models.Model):
 
     def __str__(self):
         return '{}'.format(self.title)
+
+    @classmethod
+    def get(cls, id):
+        pass

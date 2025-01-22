@@ -20,3 +20,7 @@ def createbook(request):
 def list(request):
     books = Book.objects.all()
     return render(request,'listview.html',{'books':books})
+
+def viewlist(request,book_id):
+    book = Book.get(id=book_id)
+    return  render(request,'views.html',{'book':book})
